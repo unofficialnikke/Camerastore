@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Camerastore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+		<h1>Products</h1>
+		<table>
+			<tr>
+				<th>Brand</th>
+				<th>Model</th>
+				<th>Price</th>
+				<th>Product number</th>
+			</tr>
+			
+			<tr th:each = "product : ${products}">
+				<td th:text=${product.brand}></td>
+				<td th:text=${product.model}></td>
+				<td th:text=${product.price}></td>
+				<td th:text=${product.productNumber}></td>
+		</table>
+</body>
+</html>
