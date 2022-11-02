@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Camerastore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+		<h1>Add new product</h1>
+		<div>
+			<form th:object="${product}" th:action="@{save}" action="#" method="post">
+				<label for="pbrand">Brand</label>
+				<input type="text" id="pbrand" th:field="*{brand}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="pmodel">Model</label>
+				<input type="text" id="pmodel" th:field="*{model}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="pprice">Price</label>
+				<input type="text" id="pprice" th:field="*{price}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="pnumber">Product Number</label>
+				<input type="text" id="pnumber" th:field="*{productNumber}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="condlist">Condition</label>
+					<select id="condlist" th:field="*{condition}">
+						<option th:each="condition: ${conditions}" th:value="${condition.conditionId}" 
+							th:text="${condition.name}"></option>
+					</select>
+					
+					<div style="clear: both; display: block; height: 10px"></div>
+					<input type="submit" value="Save"></input>
+			</form>
+		</div>
+</body>
+</html>

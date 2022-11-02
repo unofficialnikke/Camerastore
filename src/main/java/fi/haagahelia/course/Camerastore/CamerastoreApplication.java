@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import fi.haagahelia.course.Camerastore.domain.Condition;
+import fi.haagahelia.course.Camerastore.domain.ConditionRepository;
 import fi.haagahelia.course.Camerastore.domain.Product;
 import fi.haagahelia.course.Camerastore.domain.ProductRepository;
 
@@ -19,14 +21,22 @@ public class CamerastoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner productDemo(ProductRepository prepository) {
+	public CommandLineRunner productDemo(ProductRepository prepository, ConditionRepository crepository) {
 		return (args) -> {
-			log.info("few products");
-			prepository.save(new Product("Nikon", "Z6 II", "2095,00 €", "4354366"));
-			prepository.save(new Product("Canon", "R3", "6250,00 €", "3463463"));
-			prepository.save(new Product("Sony", "A7 IV", "2850,00 €", "5675677"));
 			
-			log.info("fetech all products");
+			log.info("save the product conditions");
+			crepository.save(new Condition("A"));
+			crepository.save(new Condition("B"));
+			crepository.save(new Condition("C"));
+			crepository.save(new Condition("D"));
+			crepository.save(new Condition("E"));
+			
+			log.info("few products");
+			prepository.save(new Product("Nikon", "Z6 II", "2095,00 €", "4354366", crepository.findByName("A").get(0)));
+			prepository.save(new Product("Canon", "R3", "6250,00 €", "3463463", crepository.findByName("A").get(0)));
+			prepository.save(new Product("Sony", "A7 IV", "2850,00 €", "5675677", crepository.findByName("A").get(0)));
+			
+			log.info("fetch all products");
 			for (Product product : prepository.findAll()) {
 				log.info(product.toString());
 			}

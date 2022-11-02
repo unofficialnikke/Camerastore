@@ -12,6 +12,7 @@
 				<th>Model</th>
 				<th>Price</th>
 				<th>Product number</th>
+				<th>Condition</th>
 			</tr>
 			
 			<tr th:each = "product : ${products}">
@@ -19,6 +20,10 @@
 				<td th:text=${product.model}></td>
 				<td th:text=${product.price}></td>
 				<td th:text=${product.productNumber}></td>
+				<td th:text="${product.condition.name}"></td>
+				<td><a th:href="@{/delete/{id}(id=${product.id})}">Delete</a></td>
+			</tr>
 		</table>
+		<a href="/add">Add new product</a>
 </body>
 </html>

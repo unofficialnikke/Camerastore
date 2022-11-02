@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Product {
@@ -16,16 +20,23 @@ public class Product {
 	private String price;
 	private String productNumber;
 	
+	@ManyToOne
+	@JsonIgnore
+	@JoinColumn(name = "conditionid")
+	private Condition condition;
+	
 	public Product() {}
 	
-	public Product(String brand, String model, String price, String productNumber) {
+
+	public Product(String brand, String model, String price, String productNumber, Condition condition) {
 		super();
 		this.brand = brand;
 		this.model = model;
 		this.price = price;
 		this.productNumber = productNumber;
-		
+		this.condition = condition;
 	}
+
 	public Long getId() {
 		return id;
 	}
@@ -57,10 +68,22 @@ public class Product {
 		this.productNumber = productNumber;
 	}
 	
+	public Condition getCondition() {
+		return condition;
+	}
+
+	public void setCondition(Condition condition) {
+		this.condition = condition;
+	}
+	
 	@Override
 	public String toString() {
+	if (this.condition != null) {
+		return "Product [id=" + id + ", brand=" + brand + ", model=" + model + ", price=" + price + ", productNumber="
+				+ productNumber + ", condition=" + this.getCondition() + "]";
+	} else {
 		return "Product [id=" + id + ", brand=" + brand + ", model=" + model + ", price=" + price + ", productNumber="
 				+ productNumber + "]";
 	}
-	
+	}
 }
