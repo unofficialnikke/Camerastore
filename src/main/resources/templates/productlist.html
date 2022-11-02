@@ -1,29 +1,38 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Camerastore</title>
+    <title>Kamerakauppa</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-		<h1>Products</h1>
+		<h1>Kamerakauppa</h1>
 		<table>
-			<tr>
-				<th>Brand</th>
-				<th>Model</th>
-				<th>Price</th>
-				<th>Product number</th>
-				<th>Condition</th>
+			<tr>	
+				<th>Merkki</th>
+				<th>Malli</th>
+				<th>Hinta</th>
+				<th>Kunto</th>
+				<th>Kuntoluokitus</th>
+				<th>Tuotenumero</th>
+				<th></th>
+				<th></th>
+				<th>Muokkaus</th>
 			</tr>
 			
 			<tr th:each = "product : ${products}">
 				<td th:text=${product.brand}></td>
 				<td th:text=${product.model}></td>
 				<td th:text=${product.price}></td>
-				<td th:text=${product.productNumber}></td>
+				<td th:text="${product.status.name}"></td>
 				<td th:text="${product.condition.name}"></td>
-				<td><a th:href="@{/delete/{id}(id=${product.id})}">Delete</a></td>
+				<td th:text=${product.productNumber}></td>
+				<td><a th:href="@{/product/{id}(id=${product.id})}">Tuotesivulle</a></td>
+				<td></td>
+				<td><a th:href="@{/delete/{id}(id=${product.id})}">Poista</a>
+				<a th:href="@{/edit/{id}(id=${product.id})}">Päivitä</a>
+				</td>
 			</tr>
 		</table>
-		<a href="/add">Add new product</a>
+		<a href="/add">Lisää uusi tuote</a>
 </body>
 </html>

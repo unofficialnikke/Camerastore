@@ -25,16 +25,22 @@ public class Product {
 	@JoinColumn(name = "conditionid")
 	private Condition condition;
 	
+	@ManyToOne
+	@JsonIgnore
+	@JoinColumn(name = "statusid")
+	private Status status;
+	
 	public Product() {}
 	
 
-	public Product(String brand, String model, String price, String productNumber, Condition condition) {
+	public Product(String brand, String model, String price, String productNumber, Condition condition, Status status) {
 		super();
 		this.brand = brand;
 		this.model = model;
 		this.price = price;
 		this.productNumber = productNumber;
 		this.condition = condition;
+		this.status = status;
 	}
 
 	public Long getId() {
@@ -76,12 +82,22 @@ public class Product {
 		this.condition = condition;
 	}
 	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+
 	@Override
 	public String toString() {
-	if (this.condition != null) {
+	if (this.condition != null || this.status != null) {
 		return "Product [id=" + id + ", brand=" + brand + ", model=" + model + ", price=" + price + ", productNumber="
-				+ productNumber + ", condition=" + this.getCondition() + "]";
-	} else {
+				+ productNumber + ", condition=" + this.getCondition() + ", status=" + this.getStatus() + "]";
+	} 
+	else {
 		return "Product [id=" + id + ", brand=" + brand + ", model=" + model + ", price=" + price + ", productNumber="
 				+ productNumber + "]";
 	}

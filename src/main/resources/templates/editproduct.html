@@ -5,41 +5,41 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-		<h1>Lisää uusi tuote</h1>
+		<h1>Päivitä tuotetta</h1>
 		<div>
-			<form th:object="${product}" th:action="@{save}" action="#" method="post">
-				<label for="pbrand">Merkki</label>
-				<input type="text" id="pbrand" th:field="*{brand}"/>
+			<form th:object="${product}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" id="id" th:field="*{id}" />
+			
+			<label for="brand">Merkki</label>
+			<input type="text" th:field="*{brand}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="model">Malli</label>
+			<input type="text" th:field="*{model}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="price">Hinta</label>
+			<input type="text" th:field="*{price}"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
-				<label for="pmodel">Malli</label>
-				<input type="text" id="pmodel" th:field="*{model}"/>
-				<div style="clear: both; display: block; height: 10px;"></div>
-				
-				<label for="pprice">Hinta</label>
-				<input type="text" id="pprice" th:field="*{price}"/>
-				<div style="clear: both; display: block; height: 10px;"></div>
-				
-				<label for="statuslist">Kunto</label>
+			<label for="statuslist">Kunto</label>
 					<select id="statuslist" th:field="*{status}">
 						<option th:each="status: ${statuses}" th:value="${status.statusId}"
 						th:text="${status.name}"></option>
 					</select>
 				
-				<label for="condlist">Kuntoluokitus</label>
+			<label for="condlist">Kuntoluokitus</label>
 					<select id="condlist" th:field="*{condition}">
 						<option th:each="condition: ${conditions}" th:value="${condition.conditionId}" 
 							th:text="${condition.name}"></option>
 					</select>
 					<div style="clear: both; display: block; height: 10px;"></div>
 					
-				<label for="pnumber">Tuotenumero</label>
-				<input type="text" id="pnumber" th:field="*{productNumber}"/>
+			<label for="pnumber">Tuotenumero</label>
+			<input type="text" id="pnumber" th:field="*{productNumber}"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
-					
-					<div style="clear: both; display: block; height: 10px"></div>
+			<div style="clear: both; display: block; height: 10px"></div>
 					<input type="submit" value="Tallenna"></input>
+				
 			</form>
 		</div>
 </body>
