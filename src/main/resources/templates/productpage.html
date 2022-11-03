@@ -5,6 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-		<h1>Hello :)</h1>
+		<div style="max-width: 50%; margin: auto">
+		<h1 th:text="${products.name} + ' - ' + ${products.category}"></h1>
+		<h4 style="margin: auto" th:text="'Hinta: ' + ${products.price}"></h4>
+		<a th:href="@{/home}">Tilaa tuote</a>
+		
+		<br>
+		<br>
+		<p style="margin: auto" th:text="'Kunto: ' + ${products.status.name}"></p>
+		<p style="margin: auto" th:text="'Kuntoluokka: ' + ${products.condition.name}"></p>
+		<p style="margin: auto" th:text="'Tuotekuvaus: ' + ${products.description}"></p>
+			
+			<a th:href="@{/home}">Takaisin etusivulle</a>
+		</div>
 </body>
 </html>

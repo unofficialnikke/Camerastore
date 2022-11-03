@@ -25,7 +25,6 @@ public class Condition {
 	
 	public Condition() {}
 
-	
 	public Condition(String name) {
 		super();
 		this.name = name;

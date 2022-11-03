@@ -5,17 +5,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<div style="max-width: 50%; margin: auto">
 		<h1>Päivitä tuotetta</h1>
-		<div>
 			<form th:object="${product}" th:action="@{../save}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" />
 			
-			<label for="brand">Merkki</label>
-			<input type="text" th:field="*{brand}"/>
+			<label for="name">Tuote</label>
+			<input type="text" th:field="*{name}"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="model">Malli</label>
-			<input type="text" th:field="*{model}"/>
+				
+			<label for="pcategory">Kategoria</label>
+				<input type="text" id="pcategory" th:field="*{category}"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
+							
 			<label for="price">Hinta</label>
 			<input type="text" th:field="*{price}"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
@@ -35,6 +37,10 @@
 					
 			<label for="pnumber">Tuotenumero</label>
 			<input type="text" id="pnumber" th:field="*{productNumber}"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+			<label for="pdescription">Kuvaus</label>
+				<input type="text" id="pdescription" th:field="*{description}"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 			<div style="clear: both; display: block; height: 10px"></div>

@@ -15,10 +15,11 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String brand;
-	private String model;
+	private String name;
 	private String price;
 	private String productNumber;
+	private String category;
+	private String description;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -32,13 +33,14 @@ public class Product {
 	
 	public Product() {}
 	
-
-	public Product(String brand, String model, String price, String productNumber, Condition condition, Status status) {
+	public Product(String name, String price, String productNumber, String description, 
+					String category, Condition condition, Status status) {
 		super();
-		this.brand = brand;
-		this.model = model;
+		this.name = name;
 		this.price = price;
 		this.productNumber = productNumber;
+		this.category = category;
+		this.description = description;
 		this.condition = condition;
 		this.status = status;
 	}
@@ -49,17 +51,12 @@ public class Product {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getBrand() {
-		return brand;
+
+	public String getName() {
+		return name;
 	}
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-	public String getModel() {
-		return model;
-	}
-	public void setModel(String model) {
-		this.model = model;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPrice() {
 		return price;
@@ -72,6 +69,22 @@ public class Product {
 	}
 	public void setProductNumber(String productNumber) {
 		this.productNumber = productNumber;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	public Condition getCondition() {
@@ -90,16 +103,16 @@ public class Product {
 		this.status = status;
 	}
 
-
 	@Override
 	public String toString() {
 	if (this.condition != null || this.status != null) {
-		return "Product [id=" + id + ", brand=" + brand + ", model=" + model + ", price=" + price + ", productNumber="
-				+ productNumber + ", condition=" + this.getCondition() + ", status=" + this.getStatus() + "]";
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", productNumber="
+				+ productNumber + ", description="+ description +  ", category=" + category +
+				", condition=" + this.getCondition() + ", status=" + this.getStatus() + "]";
 	} 
 	else {
-		return "Product [id=" + id + ", brand=" + brand + ", model=" + model + ", price=" + price + ", productNumber="
-				+ productNumber + "]";
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", productNumber="
+				+ productNumber + ", description=" + description +  ", category=" + category + "]";
 	}
 	}
 }

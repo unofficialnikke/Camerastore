@@ -23,27 +23,32 @@ public class CamerastoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner productDemo(ProductRepository prepository, ConditionRepository crepository, StatusRepository srepository) {
+	public CommandLineRunner productDemo(ProductRepository ProductRepo, ConditionRepository ConditionRepo, 
+										StatusRepository StatusRepo) {
 		return (args) -> {
 			
 			log.info("save the product conditions");
-			crepository.save(new Condition("A"));
-			crepository.save(new Condition("B"));
-			crepository.save(new Condition("C"));
-			crepository.save(new Condition("D"));
-			crepository.save(new Condition("E"));
+			ConditionRepo.save(new Condition("A"));
+			ConditionRepo.save(new Condition("B"));
+			ConditionRepo.save(new Condition("C"));
+			ConditionRepo.save(new Condition("D"));
+			ConditionRepo.save(new Condition("E"));
 			
 			log.info("save the product status");
-			srepository.save(new Status("Uusi"));
-			srepository.save(new Status("Käytetty"));
+			StatusRepo.save(new Status("Uusi"));
+			StatusRepo.save(new Status("Käytetty"));
 			
 			log.info("few products");
-			prepository.save(new Product("Nikon", "Z6 II", "2095,00 €", "4354366", crepository.findByName("A").get(0), srepository.findByName("Uusi").get(0)));
-			prepository.save(new Product("Canon", "R3", "6250,00 €", "3463463", crepository.findByName("A").get(0), srepository.findByName("Käytetty").get(0)));
-			prepository.save(new Product("Sony", "A7 IV", "2850,00 €", "5675677", crepository.findByName("A").get(0), srepository.findByName("Uusi").get(0)));
+			ProductRepo.save(new Product("Nikon Z6 II", "2095,00 €", "4354366", "Hieno tuote", "Mikrojärjestelmäkamera", 
+					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
+			ProductRepo.save(new Product("Canon 5D Mark IV", "4250,00 €", "3463463", "Huono tuote", "Peilijärjestelmäkamera", 
+					ConditionRepo.findByName("B").get(0), StatusRepo.findByName("Käytetty").get(0)));
+			ProductRepo.save(new Product("Sony A7 IV", "2850,00 €", "5675677", "Huonoin tuote", "Mikrojärjestelmäkamera", 
+					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
+
 			
 			log.info("fetch all products");
-			for (Product product : prepository.findAll()) {
+			for (Product product : ProductRepo.findAll()) {
 				log.info(product.toString());
 			}
 		};
