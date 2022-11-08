@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" class="table table-striped">
 <head>
     <title>Kamerakauppa</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-	<div style="max-width: 50%; margin: auto">
+	<div style="max-width: 50%; margin: auto" class="container">
 		<h1>Päivitä tuotetta</h1>
 			<form th:object="${product}" th:action="@{../save}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" />
@@ -40,7 +41,7 @@
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 			<label for="pdescription">Kuvaus</label>
-				<input type="text" id="pdescription" th:field="*{description}"/>
+				<textarea th:field="*{description}"></textarea>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 			<div style="clear: both; display: block; height: 10px"></div>
