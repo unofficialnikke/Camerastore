@@ -63,4 +63,9 @@ public class CameraController {
 		return "productpage";
 	}
 	
+	@RequestMapping(value = "/order")
+	public String orderPage(Model model) {
+		return "orderpage";
+	}
+	
 }

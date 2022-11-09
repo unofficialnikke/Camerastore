@@ -7,44 +7,44 @@
 </head>
 <body>
 	<div class="container">
-		<div class="col-md-4">
+		<div class="form-group">
 		<h1>Lisää uusi tuote</h1>
-			<form th:object="${product}" th:action="@{save}" action="#" method="post">				
+			<form th:object="${product}" th:action="@{save}" action="#" method="post" >				
 				<label for="pnamel">Tuote</label>
-				<input type="text" id="pname" th:field="*{name}"/>
+				<input type="text" id="pname" th:field="*{name}" class="form-control" placeholder="Syötä tuotteen nimi"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 				<label for="pcategory">Kategoria</label>
-				<input type="text" id="pcategory" th:field="*{category}"/>
+				<input type="text" id="pcategory" th:field="*{category}" class="form-control" placeholder="Lisää kategoria"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 				<label for="pprice">Hinta</label>
-				<input type="text" id="pprice" th:field="*{price}"/>
+				<input type="text" id="pprice" th:field="*{price}" class="form-control" placeholder="Tuotteen hinta"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 				<label for="statuslist">Kunto</label>
-					<select id="statuslist" th:field="*{status}">
+					<select id="statuslist" th:field="*{status}" class="form-control">
 						<option th:each="status: ${statuses}" th:value="${status.statusId}"
 						th:text="${status.name}"></option>
 					</select>
 				
 				<label for="condlist">Kuntoluokitus</label>
-					<select id="condlist" th:field="*{condition}">
+					<select id="condlist" th:field="*{condition}" class="form-control">
 						<option th:each="condition: ${conditions}" th:value="${condition.conditionId}" 
 							th:text="${condition.name}"></option>
 					</select>
 					<div style="clear: both; display: block; height: 10px;"></div>
 					
 				<label for="pnumber">Tuotenumero</label>
-				<input type="text" id="pnumber" th:field="*{productNumber}"/>
+				<input type="text" id="pnumber" th:field="*{productNumber}" class="form-control" placeholder="Syötä tuotenumero"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				
 				<label for="pdescription">Kuvaus</label>
-				<textarea th:field="*{description}"></textarea>
+				<textarea th:field="*{description}" class="form-control" placeholder="Lisää tuotekuvaus tuotteelle"></textarea>
 				<div style="clear: both; display: block; height: 10px;"></div>
 					
-					<div style="clear: both; display: block; height: 10px"></div>
-					<input type="submit" value="Tallenna"></input>
+				<div style="clear: both; display: block; height: 10px;"></div>
+					<input type="submit" value="Tallenna" class="btn btn-primary"></input>
 					
 			</form>
 			</div>

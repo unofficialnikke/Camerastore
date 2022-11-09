@@ -6,18 +6,18 @@
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-		<div style="max-width: 50%; margin: auto" class="container">
+	<div style="max-width: 50%; margin: auto" class="container">
 		<h1 th:text="${products.name} + ' - ' + ${products.category}"></h1>
 		<h4 style="margin: auto" th:text="'Hinta: ' + ${products.price}"></h4>
-		<a th:href="@{/home}">Tilaa tuote</a>
+		<a th:href="@{/order}" class="btn btn-primary">Tilaa tuote</a>
 		
 		<br>
 		<br>
 		<p style="margin: auto" th:text="'Kunto: ' + ${products.status.name}"></p>
-		<p style="margin: auto" th:text="'Kuntoluokka: ' + ${products.condition.name}"></p>
-		<p style="margin: auto" th:text="'Tuotekuvaus: ' + ${products.description}"></p>
+		<p th:text="'Kuntoluokka: ' + ${products.condition.name}">Kuntoluokka:</p>
+		<p th:text="'Tuotekuvaus: ' + ${products.description}">Tuotekuvaus:</p>
 			
 			<a th:href="@{/home}">Takaisin etusivulle</a>
-		</div>
+	</div>
 </body>
 </html>

@@ -1,37 +1,47 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" class="table table-striped">
 <head>
-    <title>Kamerakauppa</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<title>Kamerakauppa</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-	<div style="max-width: 50%; margin: auto" class="container">
-		<h1>Kamerakauppa</h1>
-		<table>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Kamerakauppa</h1>
+		</div>
+		<div class="col-md-4">
+			<h5 th:inline="text">Kirjautuneena käyttäjänä [[${#httpServletRequest.remoteUser}]]</h5>
+		</div>
+		<div class="col-md-4" style="padding:20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark"/>
+			</form>
+		</div>
+		<table class="table table-striped">
 			<tr>	
 				<th>Tuote</th>
 				<th>Hinta</th>
 				<th>Kunto</th>
 				<th>Tuotenumero</th>
-				<th></th>
-				<th>Muokkaus</th>
+				<th></th>			
+				<th sec:authorize="hasAuthority('ADMIN')">Muokkaus</th>
+				<th sec:authorize="hasAuthority('ADMIN')"></th>
 			</tr>
 			
 			<tr th:each = "product : ${products}">
 				<td><a th:href="@{/product/{id}(id=${product.id})}" th:text="${product.name}"></a></td>
-				<td th:text=${product.price}></td>
+				<td th:text="${product.price} + ' €'"></td>
 				<td th:text="${product.status.name}"></td>
 				<td th:text="${product.productNumber}"></td>
 				<td></td>
-				<td>
-				<a th:href="@{/edit/{id}(id=${product.id})}">Päivitä</a>
-				<a th:href="@{/delete/{id}(id=${product.id})}">Poista</a>			
+				<td sec:authorize="hasAuthority('ADMIN')">
+				<a th:href="@{/edit/{id}(id=${product.id})}" class="btn btn-outline-danger">Päivitä</a>
+				<a th:href="@{/delete/{id}(id=${product.id})}" class="btn btn-danger">Poista</a>			
 				</td>
 			</tr>
 		</table>
-		<p></p>
-		<a href="/add" class="btn btn-primary">Lisää uusi tuote</a>
+		<a sec:authorize="hasAuthority('ADMIN')" href="/add" class="btn btn-primary">Lisää uusi tuote</a>
 	</div>
 </body>
 </html>

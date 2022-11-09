@@ -13,6 +13,8 @@ import fi.haagahelia.course.Camerastore.domain.Product;
 import fi.haagahelia.course.Camerastore.domain.ProductRepository;
 import fi.haagahelia.course.Camerastore.domain.Status;
 import fi.haagahelia.course.Camerastore.domain.StatusRepository;
+import fi.haagahelia.course.Camerastore.domain.User;
+import fi.haagahelia.course.Camerastore.domain.UserRepository;
 
 @SpringBootApplication
 public class CamerastoreApplication {
@@ -24,7 +26,7 @@ public class CamerastoreApplication {
 	
 	@Bean
 	public CommandLineRunner productDemo(ProductRepository ProductRepo, ConditionRepository ConditionRepo, 
-										StatusRepository StatusRepo) {
+										StatusRepository StatusRepo, UserRepository UserRepo) {
 		return (args) -> {
 			
 			log.info("save the product conditions");
@@ -39,13 +41,18 @@ public class CamerastoreApplication {
 			StatusRepo.save(new Status("Käytetty"));
 			
 			log.info("few products");
-			ProductRepo.save(new Product("Nikon Z6 II", "2095,00 €", "4354366", "Hieno tuote", "Mikrojärjestelmäkamera", 
+			ProductRepo.save(new Product("Nikon Z6 II", "2095,00", "4354366", "Hieno tuote", "Mikrojärjestelmäkamera", 
 					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
-			ProductRepo.save(new Product("Canon 5D Mark IV", "4250,00 €", "3463463", "Huono tuote", "Peilijärjestelmäkamera", 
+			ProductRepo.save(new Product("Canon 5D Mark IV", "4250,00", "3463463", "Huono tuote", "Peilijärjestelmäkamera", 
 					ConditionRepo.findByName("B").get(0), StatusRepo.findByName("Käytetty").get(0)));
-			ProductRepo.save(new Product("Sony A7 IV", "2850,00 €", "5675677", "Huonoin tuote", "Mikrojärjestelmäkamera", 
+			ProductRepo.save(new Product("Sony A7 IV", "2850,00", "5675677", "Huonoin tuote", "Mikrojärjestelmäkamera", 
 					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
 
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			UserRepo.save(user1);
+			UserRepo.save(user2);
+			
 			
 			log.info("fetch all products");
 			for (Product product : ProductRepo.findAll()) {
