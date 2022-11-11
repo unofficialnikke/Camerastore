@@ -10,7 +10,7 @@
 		<div class="form-group">
 		<h1>Lisää uusi tuote</h1>
 			<form th:object="${product}" th:action="@{save}" action="#" method="post" >				
-				<label for="pnamel">Tuote</label>
+				<label for="pname">Tuote</label>
 				<input type="text" id="pname" th:field="*{name}" class="form-control" placeholder="Syötä tuotteen nimi"/>
 				<div style="clear: both; display: block; height: 10px;"></div>
 				

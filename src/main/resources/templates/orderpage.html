@@ -6,6 +6,39 @@
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-	<p>:)</p>
+	<div class="container">
+		<h4 th:text="'Olet tilaamassa tuotetta ' + ${product.name} + ' ' + ${product.category}"></h4>
+		<b>Syötä osoitetietosi</b>
+			<form th:object="${orders}" th:action="@{/confirm}" action="#" method="post" >
+				<label for="fname">Etunimi</label>
+				<input type="text" id="fname" th:field="*{firstName}" class="form-control" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="lname">Sukunimi</label>
+				<input type="text" id="lname" th:field="*{lastName}" class="form-control" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="address">Osoite</label>
+				<input type="text" id="address" th:field="*{address}" class="form-control" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="pnumber">Postinumero</label>
+				<input type="text" id="pnumber" th:field="*{postNumber}" class="form-control" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<label for="town">Postitoimipaikka</label>
+				<input type="text" id="town" th:field="*{town}" class="form-control" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				
+				<div style="clear: both; display: block; height: 10px;"></div>
+					<input type="submit" value="Vahvista tilaus" class="btn btn-primary"></input>
+			</form>
+		
+		
+		<a th:href="@{/product/{id}(id=${product.id})}">Takaisin</a>
+		<br>
+		<br>
+		<a class="btn btn-outline-primary" th:href="@{/home}">Palaa etusivulle</a>
+	</div>)
 </body>
 </html>

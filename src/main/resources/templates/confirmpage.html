@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" class="table table-striped">
+<head>
+    <title>Kamerakauppa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="col-md-4">
+				<h1>Kiitos tilauksesta!</h1>
+			</div>
+		<div class="col-md-4">
+			<table class="table table-striped">
+				<tr th:each = "order : ${orders}">
+					<td th:text="${order.firstName}"></td>
+					<td th:text="${order.lastName}"></td>
+					<td th:text="${order.address}"></td>
+					<td th:text="${order.postNumber}"></td>
+					<td th:text="${order.town}"></td>
+				</tr>
+			</table>
+			
+			<a class="btn btn-outline-primary" th:href="@{/home}">Takaisin etusivulle</a>
+		</div>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,5 +1,6 @@
 package fi.haagahelia.course.Camerastore.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class Product {
 	private String price;
 	private String productNumber;
 	private String category;
+	@Column(length = 2000)
 	private String description;
 	
 	@ManyToOne

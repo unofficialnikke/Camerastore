@@ -14,7 +14,7 @@ import fi.haagahelia.course.Camerastore.domain.ProductRepository;
 import fi.haagahelia.course.Camerastore.domain.StatusRepository;
 
 @Controller
-public class CameraController {	 
+public class ProductController {	 
 	@Autowired
 	private ProductRepository ProductRepo;	
 	@Autowired
@@ -56,16 +56,6 @@ public class CameraController {
 		ProductRepo.save(product);
 		return "redirect:home";
 	}
-	// toiminto vie tuotesivulle, jossa on enemmän informaatiota tuotteesta
-	@RequestMapping(value = "/product/{id}")
-	public String productPage(@PathVariable("id") Long productId, Model model) {
-		model.addAttribute("products", ProductRepo.findById(productId).get());
-		return "productpage";
-	}
 	
-	@RequestMapping(value = "/order")
-	public String orderPage(Model model) {
-		return "orderpage";
-	}
 	
 }
