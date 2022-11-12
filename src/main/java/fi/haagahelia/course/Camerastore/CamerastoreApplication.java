@@ -44,11 +44,9 @@ public class CamerastoreApplication {
 			StatusRepo.save(new Status("Uusi"));
 			StatusRepo.save(new Status("Käytetty"));
 			
-			
 			/*
 			 * Here are a few example products I created to show on the camerastore 
 			 */
-			
 			
 			log.info("few products");
 			ProductRepo.save(new Product("Nikon Z6 II", "2095,00", "4354366", "Hieno tuote", "Mikrojärjestelmäkamera", 
@@ -57,7 +55,6 @@ public class CamerastoreApplication {
 					ConditionRepo.findByName("B").get(0), StatusRepo.findByName("Käytetty").get(0)));
 			ProductRepo.save(new Product("Sony A7 IV", "2850,00", "5675677", "Huonoin tuote", "Mikrojärjestelmäkamera", 
 					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
-			
 			
 			/*
 			 * A few users added into the UserRepository. Admin can access everywhere on this app while user
