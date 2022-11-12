@@ -9,22 +9,33 @@
 	<div class="container">
 		<div class="col-md-4">
 				<h1>Kiitos tilauksesta!</h1>
+				<h4>Tilauksen tiedot:</h4>
 			</div>
+			
+		
+
 		<div class="col-md-4">
 			<table class="table table-striped">
+				<tr>
+					<th>Nimi</th>
+					<th>Osoite</th>
+					<th>Postinumero</th>
+					<th>Postitoimipaikka</th>
+				</tr>
 				<tr th:each = "order : ${orders}">
-					<td th:text="${order.firstName}"></td>
-					<td th:text="${order.lastName}"></td>
+					<td th:text="${order.firstName} + ' ' + ${order.lastName}"></td>
 					<td th:text="${order.address}"></td>
 					<td th:text="${order.postNumber}"></td>
 					<td th:text="${order.town}"></td>
 				</tr>
 			</table>
+			<h4 th:text="'Tuote: ' + ${product.name} + ' - ' + ${product.category}"></h4>
+			<h5 th:text="'Hinta: ' + ${product.price} + ' €'"></h5>
+			<h5>Postikulut: 8,95 €</h5>
 			
-			<a class="btn btn-outline-primary" th:href="@{/home}">Takaisin etusivulle</a>
+			<a class="btn btn-outline-primary" th:href="@{/clear/{id}(id=${product.id})}" >Takaisin etusivulle</a>
 		</div>
 	</div>
-	
 	
 </body>
 </html>

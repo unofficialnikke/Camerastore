@@ -76,6 +76,11 @@ public class Order {
 	public void setTown(String town) {
 		this.town = town;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+				+ ", postNumber=" + postNumber + ", town=" + town + "]";
+	}
 	
 }
