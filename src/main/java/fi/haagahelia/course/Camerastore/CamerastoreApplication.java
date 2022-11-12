@@ -32,7 +32,8 @@ public class CamerastoreApplication {
 			/*
 			 * Here I have added the Conditions and Statuses the admin can choose when adding or editing products
 			 */
-			log.info("save the product conditions");
+			
+			/*log.info("save the product conditions");
 			ConditionRepo.save(new Condition("A"));
 			ConditionRepo.save(new Condition("B"));
 			ConditionRepo.save(new Condition("C"));
@@ -42,10 +43,13 @@ public class CamerastoreApplication {
 			log.info("save the product status");
 			StatusRepo.save(new Status("Uusi"));
 			StatusRepo.save(new Status("Käytetty"));
+			*/
 			
 			/*
 			 * Here are a few example products I created to show on the camerastore 
 			 */
+			
+			/*
 			log.info("few products");
 			ProductRepo.save(new Product("Nikon Z6 II", "2095,00", "4354366", "Hieno tuote", "Mikrojärjestelmäkamera", 
 					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
@@ -53,6 +57,7 @@ public class CamerastoreApplication {
 					ConditionRepo.findByName("B").get(0), StatusRepo.findByName("Käytetty").get(0)));
 			ProductRepo.save(new Product("Sony A7 IV", "2850,00", "5675677", "Huonoin tuote", "Mikrojärjestelmäkamera", 
 					ConditionRepo.findByName("A").get(0), StatusRepo.findByName("Uusi").get(0)));
+			*/
 			
 			/*
 			 * A few users added into the UserRepository. Admin can access everywhere on this app while user
