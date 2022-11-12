@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class User {
 	
 	/*
-	 * This entity class creates the user details that are used when loggin in
+	 * This entity class creates the user details that are used when logging in
 	 * to the camerastore application
 	 */
 	@Id

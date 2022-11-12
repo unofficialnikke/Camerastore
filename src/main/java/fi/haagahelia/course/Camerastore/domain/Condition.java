@@ -13,7 +13,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Condition {
-	
+	/*
+	 * This is a entity class that the admin can select the condition
+	 * of the product with
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long conditionId;
