@@ -9,6 +9,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="orderTable")
 public class Order {
+	/*
+	 * With this entity class the user can insert the order details and it then
+	 * saves the details to the OrderRepository
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

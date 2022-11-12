@@ -13,7 +13,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Status {
-
+	/*
+	 * This is a entity class that the admin can select
+	 * the status of the product with
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long statusId;

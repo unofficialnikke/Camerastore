@@ -21,6 +21,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailServiceImpl userDetailsService;
 
+	/*
+	 * This method defines the rights to the different roles of users in the 
+	 * camerastore application. Only admins have the rights to add, edit
+	 * or delete products, users can only view them and make orders.
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http

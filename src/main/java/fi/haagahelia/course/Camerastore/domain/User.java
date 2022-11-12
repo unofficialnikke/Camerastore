@@ -10,7 +10,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="usertable")
 public class User {
-
+	
+	/*
+	 * This entity class creates the user details that are used when loggin in
+	 * to the camerastore application
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, updatable = false)

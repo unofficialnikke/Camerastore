@@ -13,6 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Product {
+	
+	/*
+	 * This is the Product entity class that saves the product details
+	 * to the ProductRepository with.
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
