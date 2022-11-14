@@ -9,13 +9,14 @@
 	<div style="max-width: 50%; margin: auto" class="container">
 		<h1 th:text="${product.name} + ' - ' + ${product.category}"></h1>
 		<h4 style="margin: auto" th:text="'Hinta: ' + ${product.price}"></h4>
-		<a th:href="@{/order/{id}(id=${product.id})}" class="btn btn-primary">Tilaa tuote</a>
 		
-		<br>
-		<br>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<a th:href="@{/order/{id}(id=${product.id})}" class="btn btn-primary">Tilaa tuote</a>
+	
 		<p style="margin: auto" th:text="'Kunto: ' + ${product.status.name}"></p>
-		<p th:text="'Kuntoluokka: ' + ${product.condition.name}">Kuntoluokka:</p>
-		<p th:text="'Tuotekuvaus: ' + ${product.description}">Tuotekuvaus:</p>
+		<p th:text="'Kuntoluokka: ' + ${product.condition.name}"></p>
+		<b>Tuotekuvaus:</b>
+		<p th:text="${product.description}"></p>
 			
 			<a class="btn btn-outline-primary" th:href="@{/home}">Takaisin etusivulle</a>
 	</div>

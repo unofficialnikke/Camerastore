@@ -13,7 +13,7 @@
 		<div class="col-md-4">
 			<h5 th:inline="text">Kirjautuneena käyttäjänä [[${#httpServletRequest.remoteUser}]]</h5>
 		</div>
-		<div class="col-md-4" style="padding:20px 0">
+		<div class="col-md-4" style="padding:20px">
 			<form th:action="@{/logout}" method="post">
 				<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-dark"/>
 			</form>

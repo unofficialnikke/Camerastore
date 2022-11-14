@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" class="table table-striped">
+<head>
+    <title>Kamerakauppa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="form-group">
+			<form th:action="@{/login}" method="post" style="max-width: 300px; margin: auto;">
+				<div style="height: 10px; margin: auto; text-align: center">		
+					<h1>Tervetuloa kamerakauppaan!</h1>
+					<h4>Kirjaudu ensin sisään</h4>
+					
+				<div th:if="${param.error}" class="alert alert-danger">    
+                    Virheellinen käyttäjätunnus tai salasana.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success"> 
+                    Olet kirjautunut ulos.
+                </div>   
+			
+				<label for="username">Käyttäjätunnus</label>
+                <input type="text" id="username" name="username" class="form-control"/> 
+                <div style="clear: both; display: block; height: 10px;"></div>   
+                    
+                <label for="password">Salasana</label>
+                <input type="password" id="password" name="password" class="form-control"/>
+                <div style="clear: both; display: block; height: 20px;"></div>   
+                
+                <div class="form-actions">
+                    <button type="submit" value="login" class="btn btn-primary">Kirjaudu sisään</button>
+                    <a th:href="@{/signup}" class="btn btn-success">Luo uusi tili</a>
+                </div>
+                </div>
+               </form>
+		</div>
+	</div>
+</body>
+</html>

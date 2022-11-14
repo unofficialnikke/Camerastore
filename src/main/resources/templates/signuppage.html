@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" class="table table-striped">
+<head>
+    <title>Kamerakauppa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="form-group">
+		<div style="height: 10px; margin: auto; text-align: center">
+			<h3>Rekisteröidy käyttäjäksi palveluun</h3>
+			
+			<form th:object="${signup}" th:action="@{/createaccount}" action="#" method="post" style="max-width: 300px; margin: auto;">
+				
+				<label for="uname">Käyttäjätunnus</label>
+				<input type="text" id="uname" th:field="*{username}" class="form-control" placeholder="Syötä käyttäjätunnus"/>
+				<br>
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="alert alert-danger"></p>	
+				<div style="clear: both; display: block; height: 10px;"></div>   
+				
+				<label for="pword">Salasana</label>
+				<input type="text" id="pword" th:field="*{password}" class="form-control" placeholder="Syötä salasana"/>
+				<br>
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger"></p>
+				<div style="clear: both; display: block; height: 10px;"></div>   
+				
+				<label for="pword">Salasana uudelleen</label>
+				<input type="text" id="pword" th:field="*{checkPassword}" class="form-control" placeholder="Syötä salasana"/>
+				<br>
+				<p th:if="${#fields.hasErrors('checkPassword')}" th:errors="*{checkPassword}" class="alert alert-danger" style=""></p>
+				<div style="clear: both; display: block; height: 10px;"></div>   
+	
+				<div class="form-actions">
+					<button type="submit" value="signup" class="btn btn-primary">Rekisteröidy</button>			
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

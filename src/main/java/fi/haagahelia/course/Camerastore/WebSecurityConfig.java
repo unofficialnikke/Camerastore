@@ -11,8 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import fi.haagahelia.course.Camerastore.web.UserDetailServiceImpl;
 
-
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -28,13 +26,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		http.formLogin().loginPage("/login");
+		
 		http
-		.authorizeRequests().antMatchers("/css/**").permitAll()
+		.authorizeRequests()
+		.antMatchers("/css/**").permitAll()
+		.antMatchers("/signup", "/createaccount").permitAll()
 		.and()
 		.authorizeRequests()
 			.anyRequest().authenticated()
 		.and()
 	.formLogin()
+		.loginPage("/login")
+		.permitAll()
 		.defaultSuccessUrl("/home", true)
 		.permitAll()
 		.and()

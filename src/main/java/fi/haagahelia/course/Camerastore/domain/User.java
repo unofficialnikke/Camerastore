@@ -51,7 +51,7 @@ public class User {
 		return username;
 	}
 
-	public void setUsername1(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
@@ -67,7 +67,7 @@ public class User {
 		return role;
 	}
 
-	public void setRole1(String role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 

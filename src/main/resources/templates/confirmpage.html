@@ -29,12 +29,13 @@
 					<td th:text="${order.town}"></td>
 				</tr>
 			</table>
+			</div>
 			<h4 th:text="'Tuote: ' + ${product.name} + ' - ' + ${product.category}"></h4>
 			<h5 th:text="'Hinta: ' + ${product.price} + ' €'"></h5>
 			<h5>Postikulut: 8,95 €</h5>
 			
 			<a class="btn btn-outline-primary" th:href="@{/clear/{id}(id=${product.id})}" >Takaisin etusivulle</a>
-		</div>
+		
 	</div>
 	
 </body>
