@@ -28,7 +28,7 @@
 				<label for="pword">Salasana uudelleen</label>
 				<input type="text" id="pword" th:field="*{checkPassword}" class="form-control" placeholder="Syötä salasana"/>
 				<br>
-				<p th:if="${#fields.hasErrors('checkPassword')}" th:errors="*{checkPassword}" class="alert alert-danger" style=""></p>
+				<p th:if="${#fields.hasErrors('checkPassword')}" th:errors="*{checkPassword}" class="alert alert-danger"></p>
 				<div style="clear: both; display: block; height: 10px;"></div>   
 	
 				<div class="form-actions">

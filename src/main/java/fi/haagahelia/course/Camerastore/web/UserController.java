@@ -21,16 +21,29 @@ public class UserController {
 	@Autowired
 	private UserRepository UserRepo;
 	
+	/*
+	 * Endpoint for logging in
+	 */
+	
 	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
+	
+	/*
+	 * Endpoint for signing up new users
+	 */
 	
 	@GetMapping("/signup")
 	public String createAccount(Model model) {
 		model.addAttribute("signup", new Signup());
 		return "signuppage";
 	}
+	
+	/*
+	 * With this endpoint user creates the new account and it saves it into the UserRepository, then 
+	 * takes them back to login page and the account is ready to use
+	 */
 	
 	@PostMapping("/createaccount")
 	public String create(@Valid @ModelAttribute("signup") Signup signup, BindingResult bindingResult) {

@@ -5,6 +5,11 @@ import javax.validation.constraints.Size;
 
 public class Signup {
 	
+	/*
+	 * Class for the signup. It gets the values from the inputfields of the signup 
+	 * html page and saves them into the UseRepository
+	 */
+	
 	@NotEmpty
 	@Size(min=4, max=25)
 	private String username = "";

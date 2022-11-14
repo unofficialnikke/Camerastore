@@ -23,7 +23,7 @@ public class ProductController {
 	private StatusRepository StatusRepo;
 	
 	/*
-	 * This method lists all the products on the homepage
+	 * This endpoint lists all the products on the homepage
 	 * Admins can also delete, edit or add new products from this page
 	 * User can access to product pages by clicking the name of the product
 	 */
@@ -33,7 +33,7 @@ public class ProductController {
 		return "productlist";
 	}
 	/*
-	 * Method to delete a specific product. The productId comes in a
+	 * Endpoint to delete a specific product. The productId comes in a
 	 * PathVariable. It returns back to homepage 
 	 * It is only visible to admins
 	 */
@@ -43,7 +43,7 @@ public class ProductController {
 		return "redirect:../home";
 	}
 	/*
-	 * Method to edit products. This method gets the id through PathVariable.
+	 * Endpoint to edit products. This method gets the id through PathVariable.
 	 * It is only visible to admins
 	 */
 
@@ -55,18 +55,18 @@ public class ProductController {
 		return "editproduct";
 	}
 	/*
-	 * With this method user can add new products to the productlist. It
+	 * With this endpoint user can add new products to the productlist. It
 	 * is only visible to admins
 	 */
-		@RequestMapping(value = "/add")
-		public String addProduct(Model model) {
-			model.addAttribute("product", new Product());
-			model.addAttribute("conditions", ConditionRepo.findAll());
-			model.addAttribute("statuses", StatusRepo.findAll());
-			return "addproduct";
+	@RequestMapping(value = "/add")
+	public String addProduct(Model model) {
+		model.addAttribute("product", new Product());
+		model.addAttribute("conditions", ConditionRepo.findAll());
+		model.addAttribute("statuses", StatusRepo.findAll());
+		return "addproduct";
 		}
 	/*
-	 * This method saves the changes made to existing products or saves
+	 * This endpoint saves the changes made to existing products or saves
 	 * the new ones and adds them into the ProductRepository.
 	 * Only visible to admins.
 	 */
@@ -74,7 +74,5 @@ public class ProductController {
 	public String save(Product product) {
 		ProductRepo.save(product);
 		return "redirect:home";
-	}
-	
-	
+		}
 }

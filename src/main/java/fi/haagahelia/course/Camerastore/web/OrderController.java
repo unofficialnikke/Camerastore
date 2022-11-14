@@ -20,7 +20,7 @@ public class OrderController {
 	private OrderRepository OrderRepo;
 
 	/*
-	 * This method shows the product page for the specific product and lists
+	 * This endpoint shows the product page for the specific product and lists
 	 * all the data of it. From this page user can also make and order of the product
 	 */
 		@RequestMapping(value = "/product/{id}")
@@ -29,7 +29,7 @@ public class OrderController {
 			return "productpage";
 		}
 		/*
-		 * This method is for ordering products. It can be accessed through
+		 * This endpoint is for ordering products. It can be accessed through
 		 * product pages and user can insert their order informations on this page
 		 */
 		@RequestMapping(value = "/order/{id}")
@@ -39,7 +39,7 @@ public class OrderController {
 			return "orderpage";
 		}
 		/*
-		 * This method places and saves the order and redirects the user to the confirm page
+		 * This endpoint places and saves the order and redirects the user to the confirm page
 		 * It gets the id through the PathVariable
 		 */
 		@PostMapping("/placeorder/{id}")
@@ -49,7 +49,7 @@ public class OrderController {
 			return "redirect:/confirm/" + productId;
 		}
 		/*
-		 * This is the method to show the confirm page and it includes order and product details as well
+		 * This is the endpoint to show the confirm page and it includes order and product details as well
 		 * From this page user can return back to homepage
 		 */
 		
@@ -61,7 +61,7 @@ public class OrderController {
 		}
 		
 		/*
-		 * This is a sneaky method to delete the product from the productlist and it also deletes the
+		 * This is a sneaky endpoint to delete the product from the productlist and it also deletes the
 		 * order details that are show on the confirm page. It then redirects back to homepage
 		 * It deletes the order details because in confirm page it would then list all the orders that
 		 * have been made in the camerastore. So to only show the most recent order details on the confirm
