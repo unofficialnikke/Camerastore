@@ -10,6 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import fi.haagahelia.course.Camerastore.web.OrderController;
 import fi.haagahelia.course.Camerastore.web.ProductController;
+import fi.haagahelia.course.Camerastore.web.UserController;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -25,10 +26,14 @@ class CamerastoreApplicationTests {
 	@Autowired
 	private ProductController productController;
 	
+	@Autowired
+	private UserController userController;
+	
 	@Test
 	public void contextLoads() throws Exception {
 		assertThat(orderController).isNotNull();
 		assertThat(productController).isNotNull();
+		assertThat(userController).isNotNull();
 		
 	}
 
