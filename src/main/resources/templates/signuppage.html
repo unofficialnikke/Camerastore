@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
-<body>
+<body style="background-color: #F4F4F4">
 	<div class="container">
 		<div class="form-group">
 		<div style="height: 10px; margin: auto; text-align: center">
@@ -26,7 +26,7 @@
 				<div style="clear: both; display: block; height: 10px;"></div>   
 				
 				<label for="pword">Salasana uudelleen</label>
-				<input type="text" id="pword" th:field="*{checkPassword}" class="form-control" placeholder="Syötä salasana"/>
+				<input type="text" id="pword" th:field="*{checkPassword}" class="form-control" placeholder="Syötä salasana uudelleen"/>
 				<br>
 				<p th:if="${#fields.hasErrors('checkPassword')}" th:errors="*{checkPassword}" class="alert alert-danger"></p>
 				<div style="clear: both; display: block; height: 10px;"></div>   
