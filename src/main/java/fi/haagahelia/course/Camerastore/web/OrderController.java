@@ -62,9 +62,9 @@ public class OrderController {
 		
 		/*
 		 * This is a sneaky endpoint to delete the product from the productlist and it also deletes the
-		 * order details that are show on the confirm page. It then redirects back to homepage
-		 * It deletes the order details because in confirm page it would then list all the orders that
-		 * have been made in the camerastore. So to only show the most recent order details on the confirm
+		 * order details that are shown on the confirm page. It then redirects back to the homepage
+		 * It deletes the order details because in confirmpage it would then list all the orders that
+		 * have been made in the camerastore app. So to only show the most recent order details on the confirm
 		 * page I decided to make a method that always deletes the previous order details
 		 */
 		
